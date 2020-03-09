@@ -9,10 +9,17 @@ const reducer = (state=0,action)=>{
 };
 
 const store = createStore(reducer);
-store.subscribe(()=>{
-	console.log("state:"+store.getState());
+document.getElementById('inc').addEventListener('click',function(){
+	store.dispatch({type:'INC'})
+	//document.getElementById('counter').innerHTML = store.getState();
+})
+document.getElementById('dec').addEventListener('click',function(){
+	store.dispatch({type:'DEC'})
+	//document.getElementById('counter').innerHTML = store.getState();
 })
 
-console.log(store);
-store.dispatch({type:'INC'});
-store.dispatch({type:'INC'});
+const update = ()=>{
+	document.getElementById('counter').innerHTML = store.getState();
+}
+
+store.subscribe(update);  
