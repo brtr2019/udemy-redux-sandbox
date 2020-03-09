@@ -1,4 +1,5 @@
 
+import {createStore} from 'redux';
 const reducer = (state=0,action)=>{
   switch(action.type){
     case 'INC': return state+1;break;
@@ -6,9 +7,12 @@ const reducer = (state=0,action)=>{
     default:return state;
   }
 };
-let state = reducer(undefined,{});
 
-state=reducer(state,{type:'INC'});
-console.log(state);
-state = reducer(state,{type:'INC'});
-console.log(state);
+const store = createStore(reducer);
+store.subscribe(()=>{
+	console.log("state:"+store.getState());
+})
+
+console.log(store);
+store.dispatch({type:'INC'});
+store.dispatch({type:'INC'});
