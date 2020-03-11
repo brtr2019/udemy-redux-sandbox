@@ -1,12 +1,15 @@
 import React from 'react';
-const Counter =()=>
+const Counter =({counter,inc,dec,rnd})=>
 {
+
+
+
 	return (
-		<div class="jumbotron">
-			<h2 id="counter">0</h2>
-	    	<button id="inc" className="btn-primary btn-lg">INC</button>
-	    	<button id="dec" className="btn-primary btn-lg">DEC</button>
-	    	<button id="rnd" className="btn-primary btn-lg">RND</button>	
+		<div className="jumbotron">
+			<h2 id="counter">{counter}</h2>
+	    	<button id="inc" className="btn-primary btn-lg" onClick={inc}>INC</button>
+	    	<button id="dec" className="btn-primary btn-lg" onClick={dec}>DEC</button>
+	    	<button id="rnd" className="btn-primary btn-lg" onClick={rnd}>RND</button>	
 		</div>
 	)	
 }
